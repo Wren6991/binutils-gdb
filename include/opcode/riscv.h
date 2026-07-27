@@ -401,6 +401,10 @@ static inline unsigned int riscv_insn_length (insn_t insn)
 #define OP_MASK_XSO1            0x1
 #define OP_SH_XSO1              26
 
+
+/* Hazard3 Xh3bextm fields.  */
+#define OP_MASK_H3BEXTM_SIZE	0x7
+#define OP_SH_H3BEXTM_SIZE	26
 /* MIPS fields.  */
 #define OP_MASK_MIPS_IMM9		0x1ff
 #define OP_SH_MIPS_IMM9		20
@@ -582,6 +586,8 @@ enum riscv_insn_class
   INSN_CLASS_XCVMAC,
   INSN_CLASS_XCVMEM,
   INSN_CLASS_XCVSIMD,
+  INSN_CLASS_XH3BEXTM,
+  INSN_CLASS_XH3SFX,
   INSN_CLASS_XTHEADBA,
   INSN_CLASS_XTHEADBB,
   INSN_CLASS_XTHEADBS,

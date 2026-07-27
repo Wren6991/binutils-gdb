@@ -1748,6 +1748,15 @@ validate_riscv_insn (const struct riscv_opcode *opc, int length)
 		    goto unknown_validate_operand;
 		}
 	      break;
+	    case 'h': /* Vendor-specific (Hazard3) operands.  */
+	      switch (*++oparg)
+	        {
+	        case '1': USE_BITS (OP_MASK_H3BEXTM_SIZE, OP_SH_H3BEXTM_SIZE);
+	      		    break;
+	        default:
+	          goto unknown_validate_operand;
+	        }
+	      break;
 	    case 's': /* Vendor-specific (SiFive) operands.  */
 	      switch (*++oparg)
 		{
@@ -4181,6 +4190,26 @@ riscv_ip (char *str, struct riscv_cl_insn *ip, expressionS *imm_expr,
 			goto unknown_riscv_ip_operand;
 		    }
 		  break;
+		case 'h': /* Vendor-specific (Hazard3) operands.  */
+		  switch (*++oparg)
+		      {
+		      case '1': /* Xh1: bit extract size, 1 - 8, encoded as value - 1 at bits 28:26.  */
+		        my_getExpression (imm_expr, asarg, force_reloc);
+		        check_absolute_expr (ip, imm_expr, false);
+		        if (imm_expr->X_add_number < 1
+		  		  || imm_expr->X_add_number > 8)
+		  		as_bad (_("improper size value (%"PRIi64")"),
+		  			imm_expr->X_add_number);
+		        INSERT_OPERAND (H3BEXTM_SIZE, *ip,
+		  			      imm_expr->X_add_number - 1);
+		        imm_expr->X_op = O_absent;
+		        asarg = expr_parse_end;
+		        continue;
+		      default:
+		        goto unknown_riscv_ip_operand;
+		      }
+		    break;
+
 
 		case 's': /* Vendor-specific (SiFive) operands.  */
 #define UIMM_BITFIELD_VAL(S, E) (1 << ((E) - (S) + 1))

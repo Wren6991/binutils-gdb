@@ -2714,6 +2714,29 @@ const struct riscv_opcode riscv_opcodes[] =
 {"cv.sub.div4",           0, INSN_CLASS_XCVSIMD, "d,s,t", MATCH_CV_SUB_DIV4, MASK_CV_SUB_DIV4, match_opcode, 0},
 {"cv.sub.div8",           0, INSN_CLASS_XCVSIMD, "d,s,t", MATCH_CV_SUB_DIV8, MASK_CV_SUB_DIV8, match_opcode, 0},
 
+/* Vendor-specific (Hazard3) Xh3bextm instructions.  */
+{"h3.bextm",   32, INSN_CLASS_XH3BEXTM, "d,s,t,Xh1", MATCH_H3_BEXTM,  MASK_H3_BEXTM,  match_opcode, 0 },
+{"h3.bextmi",  32, INSN_CLASS_XH3BEXTM, "d,s,<,Xh1", MATCH_H3_BEXTMI, MASK_H3_BEXTMI, match_opcode, 0 },
+
+/* Vendor-specific (Hazard3) Xh3sfx instructions.  */
+{"h3.funpackq3.s",  32, INSN_CLASS_XH3SFX, "d,s",   MATCH_H3_FUNPACKQ3_S,  MASK_H3_FUNPACKQ3_S,  match_opcode, 0 },
+{"h3.funpackq3.h",  32, INSN_CLASS_XH3SFX, "d,s",   MATCH_H3_FUNPACKQ3_H,  MASK_H3_FUNPACKQ3_H,  match_opcode, 0 },
+{"h3.funpacku3.s",  32, INSN_CLASS_XH3SFX, "d,s",   MATCH_H3_FUNPACKU3_S,  MASK_H3_FUNPACKU3_S,  match_opcode, 0 },
+{"h3.funpacku3.h",  32, INSN_CLASS_XH3SFX, "d,s",   MATCH_H3_FUNPACKU3_H,  MASK_H3_FUNPACKU3_H,  match_opcode, 0 },
+{"h3.fcheck2e.s",  32, INSN_CLASS_XH3SFX, "d,s,t", MATCH_H3_FCHECK2E_S,  MASK_H3_FCHECK2E_S,  match_opcode, 0 },
+{"h3.fcheck2e.h",  32, INSN_CLASS_XH3SFX, "d,s,t", MATCH_H3_FCHECK2E_H,  MASK_H3_FCHECK2E_H,  match_opcode, 0 },
+{"h3.fpackrq3.s",  32, INSN_CLASS_XH3SFX, "d,s,t", MATCH_H3_FPACKRQ3_S,  MASK_H3_FPACKRQ3_S,  match_opcode, 0 },
+{"h3.fpackrq3.h",  32, INSN_CLASS_XH3SFX, "d,s,t", MATCH_H3_FPACKRQ3_H,  MASK_H3_FPACKRQ3_H,  match_opcode, 0 },
+{"h3.feadjq3",      32, INSN_CLASS_XH3SFX, "d,s",   MATCH_H3_FEADJQ3,     MASK_H3_FEADJQ3,     match_opcode, 0 },
+{"h3.feadju3",      32, INSN_CLASS_XH3SFX, "d,s",   MATCH_H3_FEADJU3,     MASK_H3_FEADJU3,     match_opcode, 0 },
+{"h3.xorsign",      32, INSN_CLASS_XH3SFX, "d,s,t", MATCH_H3_XORSIGN,     MASK_H3_XORSIGN,     match_opcode, 0 },
+{"h3.ssla",         32, INSN_CLASS_XH3SFX, "d,s,t", MATCH_H3_SSLA,        MASK_H3_SSLA,        match_opcode, 0 },
+{"h3.ssll",         32, INSN_CLASS_XH3SFX, "d,s,t", MATCH_H3_SSLL,        MASK_H3_SSLL,        match_opcode, 0 },
+{"h3.ssra",         32, INSN_CLASS_XH3SFX, "d,s,t", MATCH_H3_SSRA,        MASK_H3_SSRA,        match_opcode, 0 },
+{"h3.ssrl",         32, INSN_CLASS_XH3SFX, "d,s,t", MATCH_H3_SSRL,        MASK_H3_SSRL,        match_opcode, 0 },
+{"h3.ssrasticky",   32, INSN_CLASS_XH3SFX, "d,s,t", MATCH_H3_SSRASTICKY,  MASK_H3_SSRASTICKY,  match_opcode, 0 },
+{"h3.ssrlsticky",   32, INSN_CLASS_XH3SFX, "d,s,t", MATCH_H3_SSRLSTICKY,  MASK_H3_SSRLSTICKY,  match_opcode, 0 },
+
 /* Vendor-specific (T-Head) XTheadBa instructions.  */
 {"th.addsl",    0, INSN_CLASS_XTHEADBA,    "d,s,t,Xtu2@25",   MATCH_TH_ADDSL,    MASK_TH_ADDSL,    match_opcode, 0},
 
