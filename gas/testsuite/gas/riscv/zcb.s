@@ -22,4 +22,5 @@ target:
 	not x8,x8
 	c.not x15
 	mul x8,x8,x15
+	mul x8,x15,x8
 	c.mul x9,x12

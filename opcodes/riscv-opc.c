@@ -886,6 +886,7 @@ const struct riscv_opcode riscv_opcodes[] =
 
 /* Multiply/Divide instruction subset.  */
 {"mul",        0, INSN_CLASS_ZCB_AND_ZMMUL, "Cs,Cw,Ct",  MATCH_C_MUL, MASK_C_MUL, match_opcode, INSN_ALIAS },
+{"mul",        0, INSN_CLASS_ZCB_AND_ZMMUL, "Cs,Ct,Cw",  MATCH_C_MUL, MASK_C_MUL, match_opcode, INSN_ALIAS },
 {"mul",        0, INSN_CLASS_ZMMUL, "d,s,t",     MATCH_MUL, MASK_MUL, match_opcode, 0 },
 {"mulh",       0, INSN_CLASS_ZMMUL, "d,s,t",     MATCH_MULH, MASK_MULH, match_opcode, 0 },
 {"mulhu",      0, INSN_CLASS_ZMMUL, "d,s,t",     MATCH_MULHU, MASK_MULHU, match_opcode, 0 },

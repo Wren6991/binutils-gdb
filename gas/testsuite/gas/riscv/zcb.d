@@ -29,4 +29,5 @@ Disassembly of section .text:
 [ 	]+[0-9a-f]+:[ 	]+9c75[ 	]+c.not[ 	]+s0
 [ 	]+[0-9a-f]+:[ 	]+9ff5[ 	]+c.not[ 	]+a5
 [ 	]+[0-9a-f]+:[ 	]+9c5d[ 	]+c.mul[ 	]+s0,a5
+[ 	]+[0-9a-f]+:[ 	]+9c5d[ 	]+c.mul[ 	]+s0,a5
 [ 	]+[0-9a-f]+:[ 	]+9cd1[ 	]+c.mul[ 	]+s1,a2
