@@ -3589,7 +3589,8 @@ disassemble_bytes (struct disassemble_info *inf,
 
 		  for (k = 0; k < bpc; k++)
 		    printf ("  ");
-		  putchar (' ');
+		  if (inf->arch != bfd_arch_riscv)
+		    putchar (' ');
 		}
 
 	      /* Separate raw data from instruction by extra space.  */
